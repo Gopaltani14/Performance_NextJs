@@ -27,6 +27,9 @@ export default function Nav() {
           <Link href="/form">Sample Form (Route)</Link>
         </li>
         <li>
+          <Link href="/images">Load heavy images</Link>
+        </li>
+        <li>
           <p
             onClick={goToForm}
             style={{
