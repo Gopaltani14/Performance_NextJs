@@ -59,6 +59,7 @@ a {
   margin-bottom: 20px;
   font-weight: bold;
   border: none;
+  cursor: pointer;
   border-radius: 5px;
 }
 .btn-primary {
