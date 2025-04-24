@@ -114,8 +114,7 @@ export const formFields = [
 
 function SampleForm() {
   return (
-    <div>
-      SampleForm
+    <div style={{ marginTop: "1rem" }}>
       <div>
         <Form
           style={{

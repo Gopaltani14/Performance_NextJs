@@ -21,10 +21,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <h3 style={{ textAlign: "center", margin: "10px" }}>NextJS App</h3>
-        <hr />
+        <h2
+          style={{
+            textAlign: "center",
+            fontWeight: "bold",
+            backgroundColor: "#f2f2f2",
+            paddingBottom: "6px",
+          }}
+        >
+          NextJS App
+        </h2>
         <Nav />
-        <hr />
         {children}
       </body>
     </html>

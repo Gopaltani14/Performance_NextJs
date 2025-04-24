@@ -1,49 +1,50 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function Nav() {
-  const router = useRouter();
+  const pathname = usePathname();
 
-  const goToForm = () => {
-    router.push("/form");
-  };
+  const navLinks = [
+    { href: "/datagrid", label: "Datagrid" },
+    { href: "/form", label: "Sample Form (Route)" },
+    { href: "/images", label: "Load heavy images" },
+    { href: "/chart", label: "Load Chart" },
+  ];
 
   return (
-    <nav>
+    <nav style={{ backgroundColor: "#2294c9", padding: "10px" }}>
       <ul
         style={{
           display: "flex",
+          marginLeft: "5px",
           gap: "1rem",
           listStyle: "none",
-          margin: "20px 0 10px 20px",
         }}
       >
-        <li>
-          <Link href="/datagrid">Datagrid</Link>
-        </li>
-        <li>
-          <Link href="/form">Sample Form (Route)</Link>
-        </li>
-        <li>
-          <Link href="/images">Load heavy images</Link>
-        </li>
-        <li>
-          <p
-            onClick={goToForm}
-            style={{
-              cursor: "pointer",
-              color: "blue",
-              textDecoration: "underline",
-            }}
-          >
-            Sample Form (Logical)
-          </p>
-        </li>
-        <li>
-          <Link href="/chart">Load Chart</Link>
-        </li>
+        {navLinks.map(({ href, label }) => {
+          const isActive = pathname === href;
+
+          return (
+            <li key={href}>
+              <Link
+                href={href}
+                style={{
+                  color: isActive ? "#2294c9" : "white",
+                  fontWeight: "bold",
+                  backgroundColor: isActive ? "#ffffff" : "#2294c9",
+                  padding: "5px 5px 8px 5px",
+                  borderRadius: isActive ? "8px 8px 0px 0px" : "0px",
+                  textDecoration: "none",
+                }}
+                className="nav-link"
+              >
+                {label}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );
